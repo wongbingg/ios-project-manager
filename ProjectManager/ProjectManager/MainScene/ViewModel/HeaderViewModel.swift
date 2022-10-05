@@ -6,14 +6,16 @@
 //
 
 final class HeaderViewModel {
+    var dataStore: DataStore
     let category: String
 
-    init(category: String) {
+    init(dataStore: DataStore, category: String) {
+        self.dataStore = dataStore
         self.category = category
     }
     
     func bindListCount(_ completion: @escaping (Int) -> Void) {
-        TodoDataManager.shared.didChangedData.append { [weak self] in
+        dataStore.didChangedData.append { [weak self] in
             guard let self = self else { return }
             let count = self.fetchCount()
             completion(count)
@@ -21,6 +23,6 @@ final class HeaderViewModel {
     }
     
     func fetchCount() -> Int {
-        TodoDataManager.shared.read(category: category).count
+        dataStore.read(category: category).count
     }
 }

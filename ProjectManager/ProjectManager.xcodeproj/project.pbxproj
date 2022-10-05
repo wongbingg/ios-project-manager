@@ -13,13 +13,15 @@
 		AF0D211028D82A28000B1FBD /* FormSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D210F28D82A28000B1FBD /* FormSheetViewModel.swift */; };
 		AF0D211328D8372A000B1FBD /* PopoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0D211228D8372A000B1FBD /* PopoverViewModel.swift */; };
 		AF1792FA28DBDF370093DBCE /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1792F928DBDF370093DBCE /* NetworkCheck.swift */; };
-		AF2B69D628E6AE57001769D8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2B69D528E6AE57001769D8 /* NotificationManager.swift */; };
+		AF2B69D628E6AE57001769D8 /* NotificationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2B69D528E6AE57001769D8 /* NotificationProtocol.swift */; };
 		AF2B69D828E6B0A9001769D8 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2B69D728E6B0A9001769D8 /* LocalDataManager.swift */; };
 		AF2D5BD728C57BA5009514B8 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = AF2D5BD628C57BA5009514B8 /* .swiftlint.yml */; };
 		AF4FBF0828DD7BE6005C4B03 /* TextFieldBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4FBF0728DD7BE6005C4B03 /* TextFieldBuilder.swift */; };
 		AF4FBF0A28DD834E005C4B03 /* DatePickerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4FBF0928DD834E005C4B03 /* DatePickerBuilder.swift */; };
 		AF4FBF0C28DD9217005C4B03 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4FBF0B28DD9217005C4B03 /* HistoryTableViewController.swift */; };
 		AF4FBF0E28DD928A005C4B03 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4FBF0D28DD928A005C4B03 /* HistoryTableViewCell.swift */; };
+		AF509C8228E862EA00EEEB8C /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF509C8128E862EA00EEEB8C /* DataStore.swift */; };
+		AF509C8828E871B700EEEB8C /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF509C8728E871B700EEEB8C /* TodoListViewModel.swift */; };
 		AF6152E328DD416D0049EA08 /* TextViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6152E228DD416D0049EA08 /* TextViewBuilder.swift */; };
 		AF6152E728DD47BC0049EA08 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6152E628DD47BC0049EA08 /* Protocols.swift */; };
 		AF66F29728D9F460005D7999 /* RemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF66F29628D9F460005D7999 /* RemoteDataManager.swift */; };
@@ -30,11 +32,11 @@
 		AFAF71B828D87A2A00B4BA1B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF71B728D87A2A00B4BA1B /* HistoryViewModel.swift */; };
 		AFAF71BA28D87A7400B4BA1B /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF71B928D87A7400B4BA1B /* History.swift */; };
 		AFB2603928D1F1290024CE70 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB2603828D1F1290024CE70 /* Todo.swift */; };
-		AFB2603B28D1F2F10024CE70 /* TodoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB2603A28D1F2F10024CE70 /* TodoDataManager.swift */; };
+		AFB2603B28D1F2F10024CE70 /* TodoDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB2603A28D1F2F10024CE70 /* TodoDataStore.swift */; };
 		AFB2603E28D20C300024CE70 /* TodoListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB2603D28D20C300024CE70 /* TodoListCoordinator.swift */; };
 		AFB2604B28D2A32B0024CE70 /* FormSheetViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB2604A28D2A32B0024CE70 /* FormSheetViewCoordinator.swift */; };
 		AFB2605528D2C7460024CE70 /* ListCollectionView+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB2605428D2C7460024CE70 /* ListCollectionView+UIGestureRecognizerDelegate.swift */; };
-		AFCDC5F828DB287200339971 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDC5F728DB287200339971 /* HistoryManager.swift */; };
+		AFCDC5F828DB287200339971 /* HistoryRecordable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDC5F728DB287200339971 /* HistoryRecordable.swift */; };
 		AFCDC5FD28DB3F5A00339971 /* LabelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDC5FC28DB3F5A00339971 /* LabelBuilder.swift */; };
 		AFCDC5FF28DB478F00339971 /* StackViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDC5FE28DB478F00339971 /* StackViewBuilder.swift */; };
 		AFE808AC28E5D7B200D58128 /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE808AB28E5D7B200D58128 /* TodoModel.swift */; };
@@ -63,13 +65,15 @@
 		AF0D210F28D82A28000B1FBD /* FormSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSheetViewModel.swift; sourceTree = "<group>"; };
 		AF0D211228D8372A000B1FBD /* PopoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewModel.swift; sourceTree = "<group>"; };
 		AF1792F928DBDF370093DBCE /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
-		AF2B69D528E6AE57001769D8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		AF2B69D528E6AE57001769D8 /* NotificationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationProtocol.swift; sourceTree = "<group>"; };
 		AF2B69D728E6B0A9001769D8 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
 		AF2D5BD628C57BA5009514B8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AF4FBF0728DD7BE6005C4B03 /* TextFieldBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBuilder.swift; sourceTree = "<group>"; };
 		AF4FBF0928DD834E005C4B03 /* DatePickerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerBuilder.swift; sourceTree = "<group>"; };
 		AF4FBF0B28DD9217005C4B03 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		AF4FBF0D28DD928A005C4B03 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		AF509C8128E862EA00EEEB8C /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		AF509C8728E871B700EEEB8C /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 		AF6152E228DD416D0049EA08 /* TextViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBuilder.swift; sourceTree = "<group>"; };
 		AF6152E628DD47BC0049EA08 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		AF66F29628D9F460005D7999 /* RemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataManager.swift; sourceTree = "<group>"; };
@@ -80,11 +84,11 @@
 		AFAF71B728D87A2A00B4BA1B /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		AFAF71B928D87A7400B4BA1B /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		AFB2603828D1F1290024CE70 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		AFB2603A28D1F2F10024CE70 /* TodoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDataManager.swift; sourceTree = "<group>"; };
+		AFB2603A28D1F2F10024CE70 /* TodoDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDataStore.swift; sourceTree = "<group>"; };
 		AFB2603D28D20C300024CE70 /* TodoListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListCoordinator.swift; sourceTree = "<group>"; };
 		AFB2604A28D2A32B0024CE70 /* FormSheetViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSheetViewCoordinator.swift; sourceTree = "<group>"; };
 		AFB2605428D2C7460024CE70 /* ListCollectionView+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListCollectionView+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
-		AFCDC5F728DB287200339971 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
+		AFCDC5F728DB287200339971 /* HistoryRecordable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordable.swift; sourceTree = "<group>"; };
 		AFCDC5FC28DB3F5A00339971 /* LabelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelBuilder.swift; sourceTree = "<group>"; };
 		AFCDC5FE28DB478F00339971 /* StackViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewBuilder.swift; sourceTree = "<group>"; };
 		AFE808AB28E5D7B200D58128 /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
@@ -145,6 +149,54 @@
 				AF0D211228D8372A000B1FBD /* PopoverViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF209B5F28EA9EE500E4EE1A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				AF2B69D528E6AE57001769D8 /* NotificationProtocol.swift */,
+				AFCDC5F728DB287200339971 /* HistoryRecordable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		AF509C7B28E85FBD00EEEB8C /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				AF509C8328E8631600EEEB8C /* Manager */,
+				AF509C8628E8637000EEEB8C /* Model */,
+				AF509C7F28E862D800EEEB8C /* Contract */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		AF509C7F28E862D800EEEB8C /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				AF509C8128E862EA00EEEB8C /* DataStore.swift */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		AF509C8328E8631600EEEB8C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AFB2603A28D1F2F10024CE70 /* TodoDataStore.swift */,
+				AFB2604528D297270024CE70 /* SubManager */,
+				AF209B5F28EA9EE500E4EE1A /* Protocol */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		AF509C8628E8637000EEEB8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFB2603828D1F1290024CE70 /* Todo.swift */,
+				AFE808AB28E5D7B200D58128 /* TodoModel.swift */,
+				AFAF71B928D87A7400B4BA1B /* History.swift */,
+				AFEC096E28CAFC8200628172 /* Category.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AF87FCBF28CE250500839018 /* CollectionView */ = {
@@ -221,16 +273,13 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		AFB2604528D297270024CE70 /* DataManager */ = {
+		AFB2604528D297270024CE70 /* SubManager */ = {
 			isa = PBXGroup;
 			children = (
-				AFB2603A28D1F2F10024CE70 /* TodoDataManager.swift */,
 				AF2B69D728E6B0A9001769D8 /* LocalDataManager.swift */,
 				AF66F29628D9F460005D7999 /* RemoteDataManager.swift */,
-				AF2B69D528E6AE57001769D8 /* NotificationManager.swift */,
-				AFCDC5F728DB287200339971 /* HistoryManager.swift */,
 			);
-			path = DataManager;
+			path = SubManager;
 			sourceTree = "<group>";
 		};
 		AFB43ABB28DC75AD00D9B3A9 /* Utility */ = {
@@ -277,6 +326,7 @@
 		AFB640D528CF63420070C442 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AF509C8728E871B700EEEB8C /* TodoListViewModel.swift */,
 				AF0D210628D7EE51000B1FBD /* HeaderViewModel.swift */,
 				AF0D210A28D80470000B1FBD /* ListCollectionViewModel.swift */,
 			);
@@ -306,17 +356,6 @@
 				AFEC096628CAF82400628172 /* ListCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		AFB640DA28CF63CD0070C442 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				AFAF71B928D87A7400B4BA1B /* History.swift */,
-				AFB2603828D1F1290024CE70 /* Todo.swift */,
-				AFE808AB28E5D7B200D58128 /* TodoModel.swift */,
-				AFEC096E28CAFC8200628172 /* Category.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		AFB6992E28D2FBCC00471620 /* Coordinator */ = {
@@ -409,16 +448,15 @@
 		C7431F0425F51E1D0094C4CF /* ProjectManager */ = {
 			isa = PBXGroup;
 			children = (
+				AFEF7F5E28CB1FCF0020FCBA /* Application */,
 				AFB43ABB28DC75AD00D9B3A9 /* Utility */,
+				AF509C7B28E85FBD00EEEB8C /* DataStore */,
 				AFBBAE5E28D0480F00BAECFC /* Protocols */,
 				AFEF7F7128CC229F0020FCBA /* Extensions */,
-				AFEF7F5E28CB1FCF0020FCBA /* Application */,
 				AF87FCC128CE37E700839018 /* MainScene */,
 				AF87FCC228CE381A00839018 /* FormSheetScene */,
 				AFAF71B428D876E000B4BA1B /* HistoryScene */,
 				AFB640D328CF61110070C442 /* PopoverScene */,
-				AFB640DA28CF63CD0070C442 /* Model */,
-				AFB2604528D297270024CE70 /* DataManager */,
 				C7431F0E25F51E1E0094C4CF /* Assets.xcassets */,
 				C7431F1025F51E1E0094C4CF /* LaunchScreen.storyboard */,
 				C7431F1325F51E1E0094C4CF /* Info.plist */,
@@ -569,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF509C8828E871B700EEEB8C /* TodoListViewModel.swift in Sources */,
 				AFB2603E28D20C300024CE70 /* TodoListCoordinator.swift in Sources */,
 				AF0D210728D7EE51000B1FBD /* HeaderViewModel.swift in Sources */,
 				AF6152E328DD416D0049EA08 /* TextViewBuilder.swift in Sources */,
@@ -589,11 +628,11 @@
 				AFAF71B628D876FF00B4BA1B /* HistoryViewCoordinator.swift in Sources */,
 				AFEF7F6828CB5EDB0020FCBA /* FormSheetViewController.swift in Sources */,
 				AF8953DD28CDBA1000078F5B /* PopoverViewController.swift in Sources */,
-				AF2B69D628E6AE57001769D8 /* NotificationManager.swift in Sources */,
+				AF2B69D628E6AE57001769D8 /* NotificationProtocol.swift in Sources */,
 				AFEF7F7028CC1CEE0020FCBA /* TimeInterval+Extension.swift in Sources */,
 				AF66F29728D9F460005D7999 /* RemoteDataManager.swift in Sources */,
 				AF0D211028D82A28000B1FBD /* FormSheetViewModel.swift in Sources */,
-				AFB2603B28D1F2F10024CE70 /* TodoDataManager.swift in Sources */,
+				AFB2603B28D1F2F10024CE70 /* TodoDataStore.swift in Sources */,
 				AFFFC06028D4938000E41C0A /* PopoverViewCoordinator.swift in Sources */,
 				AFE808AC28E5D7B200D58128 /* TodoModel.swift in Sources */,
 				AFAF71BA28D87A7400B4BA1B /* History.swift in Sources */,
@@ -605,8 +644,9 @@
 				AFCDC5FF28DB478F00339971 /* StackViewBuilder.swift in Sources */,
 				AF4FBF0828DD7BE6005C4B03 /* TextFieldBuilder.swift in Sources */,
 				AFAF71B828D87A2A00B4BA1B /* HistoryViewModel.swift in Sources */,
+				AF509C8228E862EA00EEEB8C /* DataStore.swift in Sources */,
 				AFEC096928CAF9F100628172 /* AppAppearance.swift in Sources */,
-				AFCDC5F828DB287200339971 /* HistoryManager.swift in Sources */,
+				AFCDC5F828DB287200339971 /* HistoryRecordable.swift in Sources */,
 				AFEC096328CAF6AA00628172 /* HeaderView.swift in Sources */,
 				AF0D210B28D80470000B1FBD /* ListCollectionViewModel.swift in Sources */,
 				AFEF7F6C28CB5F830020FCBA /* UITextField+Extension.swift in Sources */,

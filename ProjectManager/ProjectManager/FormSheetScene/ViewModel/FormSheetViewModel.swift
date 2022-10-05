@@ -8,26 +8,33 @@
 import Foundation
 
 final class FormSheetViewModel {
+    let dataStore: DataStore
     let mode: PageMode
     private(set) var currentTodo: Todo?
     
-    init(mode: PageMode, category: String?, index: Int?) {
+    init(
+        dataStore: DataStore,
+        mode: PageMode,
+        category: String?,
+        index: Int?
+    ) {
+        self.dataStore = dataStore
         self.mode = mode
         guard let category = category,
               let index = index else {
             return
         }
-        self.currentTodo = TodoDataManager.shared.read(category: category)[index]
+        self.currentTodo = dataStore.read(category: category)[index]
     }
     
     func edit(to nextTodo: TodoModel) {
         guard let currentTodo = currentTodo else {
             return
         }
-        TodoDataManager.shared.update(todo: currentTodo, with: nextTodo)
+        dataStore.update(todo: currentTodo, with: nextTodo)
     }
     
     func create(_ todoModel: TodoModel) {
-        TodoDataManager.shared.create(with: todoModel)
+        dataStore.create(with: todoModel)
     }
 }

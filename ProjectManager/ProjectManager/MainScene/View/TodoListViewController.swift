@@ -5,7 +5,6 @@
 // 
 
 import UIKit
-import RealmSwift
 
 protocol TodoListViewControllerDelegate: AnyObject {
     func addButtonDidTapped()
@@ -20,10 +19,10 @@ protocol TodoListViewControllerDelegate: AnyObject {
 
 final class TodoListViewController: UIViewController {
     weak var delegate: TodoListViewControllerDelegate?
-    
-    let todoListView: ListView
-    let doingListView: ListView
-    let doneListView: ListView
+    private let viewModel: TodoListViewModel
+    private let todoListView: ListView
+    private let doingListView: ListView
+    private let doneListView: ListView
     var navigationBar = UINavigationBar()
     
     private let stackView = DefaultStackViewBuilder()
@@ -33,14 +32,25 @@ final class TodoListViewController: UIViewController {
         .setSpacing(6)
         .stackView
     
-    init(delegate: TodoListViewControllerDelegate) {
+    init(viewModel: TodoListViewModel,
+         delegate: TodoListViewControllerDelegate) {
+        self.viewModel = viewModel
         self.delegate = delegate
-        self.todoListView = ListView(category: Category.todo,
-                                     delegate: delegate)
-        self.doingListView = ListView(category: Category.doing,
-                                      delegate: delegate)
-        self.doneListView = ListView(category: Category.done,
-                                     delegate: delegate)
+        self.todoListView = ListView(
+            dataStore: viewModel.dataStore,
+            category: Category.todo,
+            delegate: delegate
+        )
+        self.doingListView = ListView(
+            dataStore: viewModel.dataStore,
+            category: Category.doing,
+            delegate: delegate
+        )
+        self.doneListView = ListView(
+            dataStore: viewModel.dataStore,
+            category: Category.done,
+            delegate: delegate
+        )
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -58,7 +68,7 @@ final class TodoListViewController: UIViewController {
         placeListView()
         adoptCollectionViewDelegate()
         NetworkCheck.shared.startMonitoring(in: self)
-        TodoDataManager.shared.requestAuthNoti()
+        viewModel.requestAuthNoti()
     }
     
     // MARK: - Initial Setup
@@ -69,7 +79,7 @@ final class TodoListViewController: UIViewController {
     private func setupNavigationBar() {
         var statusBarHeight: CGFloat = 0
         statusBarHeight = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
-
+        
         navigationBar = UINavigationBar(
             frame: .init(x: 0, y: statusBarHeight,
                          width: view.frame.width,
@@ -77,7 +87,7 @@ final class TodoListViewController: UIViewController {
         )
         navigationBar.isTranslucent = false
         navigationBar.backgroundColor = .systemBackground
-
+        
         let naviItem = UINavigationItem(title: "Project Manager")
         naviItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
@@ -91,7 +101,7 @@ final class TodoListViewController: UIViewController {
             action: #selector(historyButtonDidTapped)
         )
         navigationBar.items = [naviItem]
-
+        
         view.addSubview(navigationBar)
     }
     
@@ -103,6 +113,7 @@ final class TodoListViewController: UIViewController {
                          height: 50)
         )
         toolBar.backgroundColor = .systemBackground
+        
         let undoItem = UIBarButtonItem(
             title: "undo",
             style: .plain,
@@ -118,11 +129,12 @@ final class TodoListViewController: UIViewController {
         undoItem.isEnabled = false
         redoItem.isEnabled = false
         toolBar.setItems([undoItem, redoItem], animated: false)
-        TodoDataManager.shared.didChangedData.append {
-            undoItem.isEnabled = TodoDataManager.shared.canUndo()
-            redoItem.isEnabled = TodoDataManager.shared.canRedo()
-        }
         view.addSubview(toolBar)
+        viewModel.bind { [weak self] in
+            guard let self = self else { return }
+            undoItem.isEnabled = self.viewModel.canUndo()
+            redoItem.isEnabled = self.viewModel.canRedo()
+        }
     }
     
     private func setupListView() {
@@ -182,11 +194,11 @@ final class TodoListViewController: UIViewController {
     }
     
     @objc private func undoButtonDidTapped(_ sender: UIBarButtonItem) {
-        TodoDataManager.shared.undo()
+        viewModel.undo()
     }
     
     @objc private func redoButtonDidTapped(_ sender: UIBarButtonItem) {
-        TodoDataManager.shared.redo()
+        viewModel.redo()
     }
 }
 

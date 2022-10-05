@@ -9,25 +9,31 @@ import UIKit
 
 final class TodoListCoordinator: Coordinator, TodoListViewControllerDelegate {
     var rootViewController: UIViewController?
-    let remoteDataManager = RemoteDataManager()
+    let dataStore = TodoDataStore()
     
     func start() -> UIViewController {
-        TodoDataManager.shared.synchronizeData()
-        let todoListViewController = TodoListViewController(delegate: self)
-        rootViewController = todoListViewController
+        let todoListVM = TodoListViewModelImp(dataStore: dataStore)
+        let todoListVC = TodoListViewController(viewModel: todoListVM, delegate: self)
+        rootViewController = todoListVC
         return rootViewController ?? UIViewController()
     }
     
     func addButtonDidTapped() {
-        let formSheetViewCoordinator = FormSheetViewCoordinator(mode: .create)
+        let formSheetViewCoordinator = FormSheetViewCoordinator(
+            dataStore: dataStore,
+            mode: .create
+        )
         let creatVC = formSheetViewCoordinator.start()
         rootViewController?.present(creatVC, animated: true)
     }
     
     func cellDidTapped(at index: Int, in category: String) {
-        let formSheetViewCoordinator = FormSheetViewCoordinator(mode: .edit,
-                                                               category: category,
-                                                               index: index)
+        let formSheetViewCoordinator = FormSheetViewCoordinator(
+            dataStore: dataStore,
+            mode: .edit,
+            category: category,
+            index: index
+        )
         let editVC = formSheetViewCoordinator.start()
         rootViewController?.present(editVC, animated: true)
     }
@@ -37,6 +43,7 @@ final class TodoListCoordinator: Coordinator, TodoListViewControllerDelegate {
                                                    item: Todo?) {
         guard let item = item else { return }
         let popoverViewCoordinator = PopoverViewCoordinator(
+            dataStore: dataStore,
             view: view,
             location: location,
             selectedTodo: item
@@ -46,7 +53,8 @@ final class TodoListCoordinator: Coordinator, TodoListViewControllerDelegate {
     }
     
     func historyButtonDidTapped(in viewController: TodoListViewController) {
-        let historyViewCoordinator = HistoryViewCoordinator(viewController: viewController)
+        let historyViewCoordinator = HistoryViewCoordinator(dataStore: dataStore,
+                                                            viewController: viewController)
         let historyVC = historyViewCoordinator.start()
         rootViewController?.present(historyVC, animated: true)
     }

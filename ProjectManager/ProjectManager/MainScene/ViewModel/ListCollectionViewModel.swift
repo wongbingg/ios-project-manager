@@ -6,14 +6,16 @@
 //
 
 final class ListCollectionViewModel {
+    var dataStore: DataStore
     let category: String
 
-    init(category: String) {
+    init(dataStore: DataStore, category: String) {
+        self.dataStore = dataStore
         self.category = category
     }
 
     func bindList(_ completion: @escaping ([Todo]) -> Void) {
-        TodoDataManager.shared.didChangedData.append { [weak self] in
+        dataStore.didChangedData.append { [weak self] in
             guard let self = self else { return }
             let changedList = self.fetchList()
             completion(changedList)
@@ -21,10 +23,10 @@ final class ListCollectionViewModel {
     }
     
     func fetchList() -> [Todo] {
-        return TodoDataManager.shared.read(category: self.category)
+        return dataStore.read(category: self.category)
     }
     
     func delete(todo: Todo) {
-        TodoDataManager.shared.delete(todo)
+        dataStore.delete(todo)
     }
 }

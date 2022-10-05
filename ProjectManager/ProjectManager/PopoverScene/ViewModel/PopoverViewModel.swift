@@ -6,13 +6,15 @@
 //
 
 final class PopoverViewModel {
+    let dataStore: DataStore
     let selectedTodo: Todo
     
-    init(selectedTodo: Todo) {
+    init(dataStore: DataStore, selectedTodo: Todo) {
+        self.dataStore = dataStore
         self.selectedTodo = selectedTodo
     }
     
     func move(to target: String) {
-        TodoDataManager.shared.move(todo: selectedTodo, to: target)
+        dataStore.move(todo: selectedTodo, to: target)
     }
 }
