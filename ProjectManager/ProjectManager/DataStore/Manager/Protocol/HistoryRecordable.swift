@@ -7,8 +7,16 @@
 
 import Foundation
 
-final class HistoryManager {
-    private var histories: [History] = []
+protocol HistoryRecordable: AnyObject {
+    var histories: [History] { get set }
+    func addHistory(todo: Todo, moveTarget: String, with style: HistoryStyle)
+    func fetchHistories() -> [History]
+}
+
+extension HistoryRecordable {
+    var histories: [History] {
+        return []
+    }
     
     func addHistory(todo: Todo, moveTarget: String = "",
                     with style: HistoryStyle) {

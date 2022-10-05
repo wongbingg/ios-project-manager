@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-protocol RemoteRepositoryConnectable: AnyObject {
+protocol RemoteDataManagerDelegate: AnyObject {
     func add(todo: Todo)
     func read(_ completion: @escaping ([Todo]) -> Void)
     func delete(todo: Todo)
@@ -16,7 +16,7 @@ protocol RemoteRepositoryConnectable: AnyObject {
 }
 
 final class LocalDataManager {
-    weak var delegate: RemoteRepositoryConnectable?
+    weak var delegate: RemoteDataManagerDelegate?
     private let realm = try! Realm()
     
     private func setupLocalData(with todo: [Todo]) {
@@ -53,6 +53,7 @@ final class LocalDataManager {
         }
     }
     
+    // MARK: - CRUD
     func create(with todo: Todo) {
         delegate?.add(todo: todo)
         do {
@@ -88,7 +89,6 @@ final class LocalDataManager {
                 todo.title = model.title
                 todo.body = model.body
                 todo.date = model.date
-                todo.category = model.category
             }
         } catch {
             print(error.localizedDescription)

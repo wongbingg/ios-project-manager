@@ -8,7 +8,7 @@
 import FirebaseCore
 import FirebaseFirestore
 
-final class RemoteDataManager: RemoteRepositoryConnectable {
+final class RemoteDataManager: RemoteDataManagerDelegate {
     private let dataBase = Firestore.firestore()
     
     func add(todo: Todo) {

@@ -7,9 +7,18 @@
 
 import UserNotifications
 
-final class NotificationManager {
-    private let notificationCenter = UNUserNotificationCenter.current()
-    
+protocol NotificationProtocol: AnyObject {
+    var notificationCenter: UNUserNotificationCenter { get set }
+    func requestAuthNoti()
+    func requestSendNoti(with todo: Todo)
+    func requestCancelNoti(with id: String)
+}
+
+extension NotificationProtocol {
+    var notificationCenter: UNUserNotificationCenter {
+        UNUserNotificationCenter.current()
+    }
+        
     func requestAuthNoti() {
         let notiAuthOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
         notificationCenter.requestAuthorization(options: notiAuthOptions) { (_, error) in
@@ -29,7 +38,7 @@ final class NotificationManager {
             from: todo.date
         )
         notiDate.hour = 9
-
+        
         let trigger = UNCalendarNotificationTrigger(
             dateMatching: notiDate,
             repeats: true
