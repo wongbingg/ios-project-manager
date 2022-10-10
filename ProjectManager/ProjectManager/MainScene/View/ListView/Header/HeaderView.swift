@@ -64,7 +64,7 @@ final class HeaderView: UIView {
     }
     
     private func setupCategoryLabel() {
-        categoryLabel.text = viewModel.category
+        categoryLabel.text = viewModel.fetchCategory()
     }
     
     private func updateHeaderCount(number: Int?) {

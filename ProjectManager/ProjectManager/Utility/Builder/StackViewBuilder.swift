@@ -18,10 +18,12 @@ protocol StackViewBuilder: UseAutoLayout {
     func setAlignment(_ alignment: UIStackView.Alignment) -> Builder
     func setSpacing(_ space: CGFloat) -> Builder
     func setBackgroundColor(_ color: UIColor) -> Builder
-    func setLayoutMargin(top: CGFloat,
-                         left: CGFloat,
-                         bottom: CGFloat,
-                         right: CGFloat) -> Builder
+    func setLayoutMargin(
+        top: CGFloat,
+        left: CGFloat,
+        bottom: CGFloat,
+        right: CGFloat
+    ) -> Builder
 }
 
 final class DefaultStackViewBuilder: StackViewBuilder {
@@ -39,10 +41,18 @@ final class DefaultStackViewBuilder: StackViewBuilder {
         return self
     }
     
-    func setLayoutMargin(top: CGFloat, left: CGFloat,
-                         bottom: CGFloat, right: CGFloat) -> Builder {
-        stackView.layoutMargins = UIEdgeInsets(top: top, left: left,
-                                               bottom: bottom, right: right)
+    func setLayoutMargin(
+        top: CGFloat,
+        left: CGFloat,
+        bottom: CGFloat,
+        right: CGFloat
+    ) -> Builder {
+        stackView.layoutMargins = UIEdgeInsets(
+            top: top,
+            left: left,
+            bottom: bottom,
+            right: right
+        )
         return self
     }
     

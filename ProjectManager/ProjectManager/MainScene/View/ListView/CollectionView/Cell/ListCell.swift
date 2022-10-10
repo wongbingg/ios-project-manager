@@ -18,19 +18,19 @@ final class ListCell: UICollectionViewCell {
         .setSpacing(5)
         .stackView
     
-    let titleLabel = DefaultLabelBuilder()
+    private let titleLabel = DefaultLabelBuilder()
         .useAutoLayout()
         .setPreferredFont(.title3)
         .label
     
-    let bodyLabel = DefaultLabelBuilder()
+    private let bodyLabel = DefaultLabelBuilder()
         .useAutoLayout()
         .setPreferredFont(.body)
         .numberOfLines(3)
         .setTextColor(with: .systemGray)
         .label
     
-    let dateLabel = DefaultLabelBuilder()
+    private let dateLabel = DefaultLabelBuilder()
         .useAutoLayout()
         .setPreferredFont(.footnote)
         .label

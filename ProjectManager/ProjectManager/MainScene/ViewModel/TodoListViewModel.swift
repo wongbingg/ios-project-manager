@@ -6,7 +6,7 @@
 //
 
 protocol TodoListViewModel {
-    var dataStore: TodoDataStore { get set }
+    var dataStore: TodoDataStore { get }
     
     func undo()
     func redo()

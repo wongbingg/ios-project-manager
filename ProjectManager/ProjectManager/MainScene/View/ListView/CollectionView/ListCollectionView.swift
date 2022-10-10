@@ -16,7 +16,7 @@ final class ListCollectionView: UICollectionView {
     weak var transitionDelegate: TodoListViewControllerDelegate?
     private var todoDataSource: UICollectionViewDiffableDataSource<Section, Todo>?
     private var snapshot = NSDiffableDataSourceSnapshot<Section, Todo>()
-    let viewModel: ListCollectionViewModel
+    private(set) var viewModel: ListCollectionViewModel
     var currentLongPressedCell: ListCell?
     
     // MARK: Initializer

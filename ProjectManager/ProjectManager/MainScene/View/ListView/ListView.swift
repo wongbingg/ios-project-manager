@@ -17,13 +17,13 @@ final class ListView: UIView {
         category: String,
         delegate: TodoListViewControllerDelegate?
     ) {
-        let headerVM = HeaderViewModel(
+        let headerVM = HeaderViewModelImp(
             dataStore: dataStore,
             category: category
         )
         self.headerView = HeaderView(viewModel: headerVM)
         
-        let listCollectionVM = ListCollectionViewModel(
+        let listCollectionVM = ListCollectionViewModelImp(
             dataStore: dataStore,
             category: category
         )

@@ -8,7 +8,6 @@
 import UIKit
 
 final class AppCoordinator: Coordinator {
-    
     private var window: UIWindow?
     var todoListCoordinator: TodoListCoordinator?
     

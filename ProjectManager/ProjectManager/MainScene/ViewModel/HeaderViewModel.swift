@@ -5,9 +5,15 @@
 //  Created by 이원빈 on 2022/09/19.
 //
 
-final class HeaderViewModel {
-    var dataStore: DataStore
-    let category: String
+protocol HeaderViewModel {
+    func bindListCount(_ completion: @escaping (Int) -> Void)
+    func fetchCount() -> Int
+    func fetchCategory() -> String
+}
+
+final class HeaderViewModelImp: HeaderViewModel {
+    private var dataStore: DataStore
+    private let category: String
 
     init(dataStore: DataStore, category: String) {
         self.dataStore = dataStore
@@ -24,5 +30,9 @@ final class HeaderViewModel {
     
     func fetchCount() -> Int {
         dataStore.read(category: category).count
+    }
+    
+    func fetchCategory() -> String {
+        return category
     }
 }
