@@ -358,13 +358,13 @@ Realm 과 Firebase는 데이터관리라는 공통점이 있으므로 delegate�
 
 
 ## 참고 링크
-[Apple Article: Displaying transient content in a popover](https://developer.apple.com/documentation/uikit/windows_and_screens/displaying_transient_content_in_a_popover)
-[LongTouchGestureRecognizer사용법](http://yoonbumtae.com/?p=4418)
-[스크롤 시, 네비게이션 바 자동 숨김처리 비활성화](https://nemecek.be/blog/126/how-to-disable-automatic-transparent-navbar-in-ios-15)
-[UIView그림자 만들기](https://babbab2.tistory.com/41)
-[키보드가 텍스트뷰를 가릴때, 해결방법](https://seizze.github.io/2019/11/17/iOS에서-키보드에-동적인-스크롤뷰-만들기.html)
-[Coden 님의 블로그 MVVM 패턴](https://velog.io/@ictechgy/MVVM-디자인-패턴)
-[realm 공식 사이트](https://www.mongodb.com/docs/realm/sdk/swift/quick-start/)
-[Apple Docs - UndoManager](https://developer.apple.com/documentation/foundation/undomanager)
-[Registering Undo Operations](https://developer.apple.com/documentation/foundation/undomanager#1663976)
-[Apple Article - Notification](https://developer.apple.com/documentation/usernotifications/handling_notifications_and_notification-related_actions)
+- [Apple Article: Displaying transient content in a popover](https://developer.apple.com/documentation/uikit/windows_and_screens/displaying_transient_content_in_a_popover)
+- [LongTouchGestureRecognizer사용법](http://yoonbumtae.com/?p=4418)
+- [스크롤 시, 네비게이션 바 자동 숨김처리 비활성화](https://nemecek.be/blog/126/how-to-disable-automatic-transparent-navbar-in-ios-15)
+- [UIView그림자 만들기](https://babbab2.tistory.com/41)
+- [키보드가 텍스트뷰를 가릴때, 해결방법](https://seizze.github.io/2019/11/17/iOS에서-키보드에-동적인-스크롤뷰-만들기.html)
+- [Coden 님의 블로그 MVVM 패턴](https://velog.io/@ictechgy/MVVM-디자인-패턴)
+- [realm 공식 사이트](https://www.mongodb.com/docs/realm/sdk/swift/quick-start/)
+- [Apple Docs - UndoManager](https://developer.apple.com/documentation/foundation/undomanager)
+- [Registering Undo Operations](https://developer.apple.com/documentation/foundation/undomanager#1663976)
+- [Apple Article - Notification](https://developer.apple.com/documentation/usernotifications/handling_notifications_and_notification-related_actions)
