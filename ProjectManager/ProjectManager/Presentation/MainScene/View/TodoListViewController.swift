@@ -98,9 +98,9 @@ final class TodoListViewController: UIViewController {
     private func setupToolBar() {
         let toolBar = UIToolbar(
             frame: .init(x: 0,
-                         y: view.frame.height-60,
+                         y: view.frame.height-70,
                          width: view.frame.width,
-                         height: 50)
+                         height: 70)
         )
         toolBar.backgroundColor = .systemBackground
         let undoItem = UIBarButtonItem(
